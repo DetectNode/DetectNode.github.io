@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DetectNode">
+  <rect width="64" height="64" rx="14" fill="#2d2c28"/>
+
+  <!-- D: the camera / lens side of the mark -->
+  <path d="M10 17v30h9c8 0 13-6 13-15S27 17 19 17z" fill="none" stroke="#fcfbf9" stroke-width="4.5" stroke-linejoin="round"/>
+  <circle cx="19.5" cy="32" r="3" fill="none" stroke="#fcfbf9" stroke-width="1.6"/>
+
+  <!-- N: a real compass, red needle and orange pencil leg -->
+  <line x1="36" y1="17" x2="36" y2="43" stroke="#e21b23" stroke-width="5" stroke-linecap="round"/>
+  <line x1="36" y1="17" x2="54" y2="43" stroke="#e21b23" stroke-width="5" stroke-linecap="round"/>
+  <polygon points="33.5,43 38.5,43 36,53" fill="#cbd5e1"/>
+  <circle cx="36" cy="17" r="3.2" fill="#fcfbf9"/>
+  <path d="M51 14c0-1.6 4-1.6 4 0l-1 30h-3z" fill="#f59e0b"/>
+  <polygon points="51,44 55,44 53,49" fill="#fde68a"/>
+  <polygon points="52,47 54,47 53,51" fill="#00e676"/>
+  <path d="M36 53a17 17 0 0 0 17-4" fill="none" stroke="#00e676" stroke-width="2" stroke-dasharray="2 2"/>
+</svg>
