@@ -1,7 +1,6 @@
 /* DetectNode landing page
    - EN is written inline in index.html and is the fallback for every key.
    - FR and SV are loaded lazily from lang/*.json.
-   - The legal notice is a trial/quality warning: it never gates the download.
    - The footer Legal link opens a static legal dialog with publisher, hosting
      and privacy details.
    - The full licence text is separate, behind the footer License link, and is
@@ -12,7 +11,6 @@
 
   /* ------------------------------------------------------------------ Config */
   var STORE_KEY = 'detectnode.lang';
-  var LEGAL_KEY = 'detectnode.legal';
   var TAGS = { en: 'EN', fr: 'FR', sv: 'SV' };
   var SUPPORTED = ['en', 'fr', 'sv'];
 
@@ -246,6 +244,11 @@
     navSections.forEach(function (section) {
       if (section.offsetTop <= offset) current = section;
     });
+    // The FAQ section is too close to the end of the page to ever reach the
+    // offset, so highlight it directly when the page is scrolled to the bottom.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      current = navSections[navSections.length - 1];
+    }
     navLinks.forEach(function (link) {
       link.classList.toggle('active', current !== null && sectionLinks.get(current) === link);
     });
@@ -259,10 +262,7 @@
   window.addEventListener('resize', requestNavUpdate);
   updateActiveNav();
 
-  /* ---------------------------------------------------------- Legal notice */
-  var legalNotice = document.getElementById('legalNotice');
-  var legalDismiss = document.getElementById('legalDismiss');
-  var legalAccept = document.getElementById('legalAccept');
+  /* --------------------------------------------------------- Legal dialogs */
   var footerLegal = document.getElementById('footerLegal');
   var footerLicense = document.getElementById('footerLicense');
   var licenseDialog = document.getElementById('licenseDialog');
@@ -271,15 +271,6 @@
   var legalDialog = document.getElementById('legalDialog');
   var legalDialogClose = document.getElementById('legalDialogClose');
   var legalDialogDone = document.getElementById('legalDialogDone');
-
-  function legalAccepted() {
-    try { return localStorage.getItem(LEGAL_KEY) === 'accepted'; } catch (e) { return false; }
-  }
-
-  function acceptLegal() {
-    try { localStorage.setItem(LEGAL_KEY, 'accepted'); } catch (e) { /* ignore */ }
-    if (legalNotice) legalNotice.hidden = true;
-  }
 
   function openLegalDialog() {
     if (!legalDialog) return;
@@ -311,10 +302,6 @@
     else licenseDialog.removeAttribute('open');
   }
 
-  if (legalAccepted() && legalNotice) legalNotice.hidden = true;
-
-  if (legalDismiss) legalDismiss.addEventListener('click', acceptLegal);
-  if (legalAccept) legalAccept.addEventListener('click', acceptLegal);
   if (footerLegal) footerLegal.addEventListener('click', openLegalDialog);
   if (footerLicense) footerLicense.addEventListener('click', openLicense);
   if (legalDialogClose) legalDialogClose.addEventListener('click', closeLegalDialog);
@@ -331,6 +318,27 @@
       if (event.target === licenseDialog) closeLicense();
     });
   }
+
+  /* -------------------------------------------------------------------- FAQ */
+  // Clicking a summary near the bottom of the page makes Chrome scroll to the
+  // end of the document. Preventing the mouse-down default keeps the viewport
+  // still; the details element still opens and closes on click.
+  Array.prototype.forEach.call(document.querySelectorAll('.faq-list summary'), function (summary) {
+    summary.addEventListener('mousedown', function (event) {
+      event.preventDefault();
+    });
+  });
+
+  /* ------------------------------------------------------------ Demo videos */
+  // Chrome moves focus to the first link when the native video controls
+  // auto-hide, which scrolls the page to the top. Park focus on the card
+  // instead, so playback never moves the viewport.
+  Array.prototype.forEach.call(document.querySelectorAll('.demo-video video'), function (video) {
+    video.addEventListener('playing', function () {
+      var card = video.closest ? video.closest('.demo-card') : null;
+      if (card && typeof card.focus === 'function') card.focus({ preventScroll: true });
+    });
+  });
 
   /* ----------------------------------------------------------------- Start */
   setLang(currentLang(), false);

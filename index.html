@@ -20,8 +20,6 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Skip to content</a>
-
 <!-- ============================================================ Dev banner -->
 <div class="banner">
   <div class="wrap banner-inner">
@@ -41,6 +39,7 @@
     <nav class="nav" id="nav" aria-label="Sections">
       <a href="#pipeline" data-i18n="nav.pipeline">Flow</a>
       <a href="#how" data-i18n="nav.how">How it works</a>
+      <a href="#demos" data-i18n="nav.demos">Demos videos</a>
       <a href="#analyses" data-i18n="nav.analyses">Analyses</a>
       <a href="#records" data-i18n="nav.records">Records</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
@@ -431,6 +430,51 @@
     </div>
   </section>
 
+  <!-- =============================================================== Demos -->
+  <section class="section demos" id="demos">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow" data-i18n="demos.eyebrow">Demos videos</p>
+        <h2 data-i18n="demos.title">See it running on the camera.</h2>
+        <p data-i18n="demos.lead">Two recordings from the real interface: a line-crossing analysis and a PaDiM anomaly model, from setup to result.</p>
+      </div>
+
+      <div class="demo-grid">
+        <figure class="demo-card reveal" tabindex="-1">
+          <div class="demo-video">
+            <video controls playsinline preload="none" poster="videos/line-crossing-poster.jpg" width="1920" height="1048" aria-label="Line crossing demo" data-i18n-aria="demos.line.title">
+              <source src="videos/line-crossing.mp4" type="video/mp4" />
+              <a href="videos/line-crossing.mp4" data-i18n="demos.fallback">Download the video</a>
+            </video>
+          </div>
+          <figcaption>
+            <div class="demo-title-row">
+              <h3 data-i18n="demos.line.title">Line crossing: setup to counting</h3>
+              <span class="demo-duration">1:35</span>
+            </div>
+            <p data-i18n="demos.line.desc">Add your model, choose the target class, draw the line on the live image, set the rule, then watch the IN/OUT counters update.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="demo-card reveal" tabindex="-1">
+          <div class="demo-video">
+            <video controls playsinline preload="none" poster="videos/padim-anomaly-poster.jpg" width="1920" height="1080" aria-label="PaDiM anomaly demo" data-i18n-aria="demos.padim.title">
+              <source src="videos/padim-anomaly.mp4" type="video/mp4" />
+              <a href="videos/padim-anomaly.mp4" data-i18n="demos.fallback">Download the video</a>
+            </video>
+          </div>
+          <figcaption>
+            <div class="demo-title-row">
+              <h3 data-i18n="demos.padim.title">PaDiM: train an anomaly model</h3>
+              <span class="demo-duration">3:23</span>
+            </div>
+            <p data-i18n="demos.padim.desc">Capture normal images, train the model on a computer, drop it on the camera and set the anomaly threshold.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================================ Analyses -->
   <section class="section analyses" id="analyses">
     <div class="wrap">
@@ -628,6 +672,7 @@
   <section class="section specs" id="specs">
     <div class="wrap">
       <h2 class="eyebrow specs-eyebrow reveal" data-i18n="specs.eyebrow">Technical specs</h2>
+      <p class="specs-guides reveal"><span data-i18n="specs.guides">Training guides and example models:</span> <a href="https://github.com/DetectNode/training-guides" target="_blank" rel="noopener">https://github.com/DetectNode/training-guides</a></p>
 
       <div class="specs-code-grid">
         <details class="spec-payload spec-disclosure reveal">
@@ -747,20 +792,6 @@
     <span class="footer-fine" data-i18n="footer.axisDisclaimer">Independent ACAP application. Not affiliated with or endorsed by Axis Communications AB. Axis and AXIS OS are trademarks of Axis Communications AB.</span>
   </div>
 </footer>
-
-<!-- ============================================================ Legal notice -->
-<aside class="legal-notice" id="legalNotice" role="region" aria-labelledby="legalTitle">
-  <button type="button" class="legal-dismiss" id="legalDismiss" aria-label="Close" data-i18n-aria="legal.close" data-i18n-title="legal.close">×</button>
-  <span class="legal-badge" data-i18n="legal.badge">Personal project</span>
-  <h2 id="legalTitle" data-i18n="legal.title">Trial pre-release</h2>
-  <p data-i18n="legal.summary">DetectNode is a personal project by Yann Moreau.</p>
-  <p data-i18n="legal.trial">This is a pre-release trial, not an industrial or production-ready product. It is provided without warranty.</p>
-  <p class="legal-privacy" data-i18n="legal.privacy">This site uses no analytics or advertising cookies. Your language and this notice are stored locally in your browser.</p>
-  <p class="legal-axis" data-i18n="legal.axis">Independent project — not affiliated with or endorsed by Axis Communications AB.</p>
-  <div class="legal-actions">
-    <button type="button" class="btn btn-sm btn-primary" id="legalAccept" data-i18n="legal.accept">Got it</button>
-  </div>
-</aside>
 
 <dialog class="license-dialog" id="licenseDialog" aria-labelledby="licenseTitle">
   <div class="license-dialog-head">
