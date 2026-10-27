@@ -1,6 +1,7 @@
 # DetectNode
 
-Native on-camera edge AI application for Axis cameras. DetectNode turns an Axis camera into a configurable vision node that runs local inference, tracks objects, evaluates spatial rules, and publishes real-time alarms and telemetry.
+On-camera edge AI application for (ARTPEC-8 / ARTPEC-9 with AXIS OS 12.10-12.x.x) cameras. 
+DetectNode turns an Axis camera into a configurable vision node that runs local inference, tracks objects, evaluates spatial rules, and publishes real-time alarms and telemetry.
 
 - **Website:** [DetectNode.github.io](https://github.com/DetectNode/DetectNode.github.io "null")
     
