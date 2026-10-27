@@ -13,16 +13,18 @@ Native on-camera edge AI application for Axis cameras. DetectNode turns an Axis 
 
 ## Features
 
-- **Model Agnostic:** Runs object detection, PaDiM anomaly detection, and semantic segmentation via a model description file without rebuilding the app.
-    
+- Supports running multiple models concurrently across single or multiple view areas and scenarios.
+
+- **Model Agnostic:** Runs object detection, PaDiM anomaly detection, and semantic segmentation via a model description file.
+
 - **On-Camera Tracking & Analysis:** Multi-object tracking with normalized geometry (resolution-independent) and 6 virtual sensors (gauge, fill ratio, altitude, blob count, crossing/contact, presence/dwell).
-    
+
 - **Rule Engine & Logic:** Evaluates conditions (duration, hysteresis, boolean logic, custom formulas) and triggers clean state-transition events to eliminate duplicate alerts.
-    
+
 - **Flexible Routing:** Out-of-the-box support for MQTT, HTTP (with JPEG/crop payloads), native Axis events, and an embedded web dashboard.
-    
+
 - **Resource Efficient:** Single video feed and single inference pass shared across multiple active scenarios.
-    
+
 
 ## Architecture
 
